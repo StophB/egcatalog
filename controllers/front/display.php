@@ -9,7 +9,9 @@ class egcatalogdisplayModuleFrontController extends ModuleFrontController
         $this->context->smarty->assign(array(
             'pages' => $this->getPages(),
             'products' => $this->getProductsByPage($page),
-            'link' => $this->context->link->getModuleLink('egcatalog', 'display')
+            'link' => $this->context->link->getModuleLink('egcatalog', 'display'),
+            'updateLink' => $this->context->link->getModuleLink('egcatalog', 'edit')
+
         ));
 
         $this->setTemplate('module:egcatalog/views/templates/front/display.tpl');

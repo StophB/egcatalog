@@ -60,19 +60,21 @@
                                             {/foreach}
 
                                         </div>
+                                        <div>
+                                        <a class="btn btn-primary" href="{$updateLink}?page={$item.Page}&prd={$item.Ordre_de_page}">UPDATE</a>
+                                        </div>
                                     </div>
                                 </article>
                             </div>
                             {else}
                             <div class="js-product product col-xs-12 col-sm-6 col-xl-4">
-                                <article class="product-miniature js-product-miniature" data-id-product="10" data-id-product-attribute="24">
+                                <article class="product-miniature js-product-miniature">
                                     <div class="thumbnail-container reviews-loaded">
                                         <div class="thumbnail-top">
                                             <a href="#" class="thumbnail product-thumbnail">
                                                 <img src="https://fournisseur.centrale-medicalliance.fr/modules/marketplace/views/img/visuels/{$product[0].VISUEL_1}.128.png" alt="{$product.LIBELLE_CAT}" data-full-size-image-url="" width="250" height="250" />
                                             </a>
                                         </div>
-
                                         <div class="product-description">
                                             <h2 class="">
                                                 <a href="#" content="#">{$product[0].LIBELLE_CAT}</a>
@@ -88,6 +90,9 @@
                                                 <span class="price pl-3" aria-label="Price"><small>{$product[0].Soit_a_lunite}€</small></span>
                                             </div>
                                             {/if}
+                                        </div>
+                                        <div>
+                                        <a class="btn btn-primary" href="{$updateLink}?page={$product[0].Page}&prd={$product[0].Ordre_de_page}">UPDATE</a>
                                         </div>
                                     </div>
                                 </article>
