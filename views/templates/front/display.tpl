@@ -51,10 +51,12 @@
                                                 <span class="reference mr-3" aria-label="Reference">Ref: {$item.REFERENCE}</span>
                                                 <span class="price pl-2" aria-label="Price">{$item.PRIX_DE_VENTE_CATALOGUE_TTC}€</span>
                                             </div>
+                                            {if isset($item.Soit_a_lunite) && !empty($item.Soit_a_lunite)}
                                             <div class="">
                                                 <span class="reference mr-3" aria-label="Reference"><small>Soit à l’unité</small></span>
                                                 <span class="price pl-3" aria-label="Price"><small>{$item.Soit_a_lunite}€</small></span>
                                             </div>
+                                            {/if}
                                             {/foreach}
 
                                         </div>
@@ -80,11 +82,12 @@
                                                 <span class="reference mr-3" aria-label="Reference">Ref: {$product[0].REFERENCE}</span>
                                                 <span class="price pl-2" aria-label="Price">{$product[0].PRIX_DE_VENTE_CATALOGUE_TTC}€</span>
                                             </div>
+                                            {if isset($product[0].Soit_a_lunite) && !empty($product[0].Soit_a_lunite)}
                                             <div class="">
                                                 <span class="reference mr-3" aria-label="Reference"><small>Soit à l’unité</small></span>
                                                 <span class="price pl-3" aria-label="Price"><small>{$product[0].Soit_a_lunite}€</small></span>
                                             </div>
-
+                                            {/if}
                                         </div>
                                     </div>
                                 </article>
