@@ -35,7 +35,7 @@ class EgCatalog extends Module
 
         if (
             !parent::install() ||
-            !$this->registerHook('leftColumn') ||
+            !$this->registerHook('displayTop') ||
             !$this->registerHook('header')
         ) {
             return false;
@@ -55,14 +55,13 @@ class EgCatalog extends Module
         return true;
     }
 
-    public function hookDisplayLeftColumn($params)
+    public function hookDisplayTop($params)
     {
         $this->context->smarty->assign([
-            'pages' => $this->getPages(),
             'link' => $this->context->link->getModuleLink('egcatalog', 'display')
         ]);
 
-        return $this->display(__FILE__, 'egcatalog.tpl');
+        return $this->display(__FILE__, 'top.tpl');
     }
 
     public function hookDisplayHeader()
@@ -72,16 +71,6 @@ class EgCatalog extends Module
             $this->_path . 'views/css/front.css',
             ['server' => 'remote', 'position' => 'head', 'priority' => 150]
         );
-    }
-
-    public function getPages()
-    {
-        $query = new DbQuery();
-        $query->select('DISTINCT c.`Page`');
-        $query->from('catalogue_nd_eg_list', 'c');
-        $query->orderBy('c.`Page` ASC');
-
-        return Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($query);
     }
 
 }
