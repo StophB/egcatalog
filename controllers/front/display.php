@@ -10,7 +10,7 @@ class egcatalogdisplayModuleFrontController extends ModuleFrontController
             'pages' => $this->getPages(),
             'products' => $this->getProductsByPage($page),
             'link' => $this->context->link->getModuleLink('egcatalog', 'display'),
-            'updateLink' => $this->context->link->getModuleLink('egcatalog', 'edit')
+            'updateLink' => $this->context->link->getModuleLink('egcatalog', 'update')
 
         ));
 
@@ -37,12 +37,10 @@ class egcatalogdisplayModuleFrontController extends ModuleFrontController
             $groupedProducts[$ordreDePage][] = $product;
         }
 
-        // Convert the associative array to a simple indexed array
         $finalResult = array_values($groupedProducts);
 
         return $finalResult;
     }
-
 
     public function getPages()
     {
@@ -54,3 +52,5 @@ class egcatalogdisplayModuleFrontController extends ModuleFrontController
         return Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($query);
     }
 }
+
+

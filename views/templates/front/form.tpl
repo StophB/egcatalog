@@ -16,8 +16,7 @@
                             <input id="LIBELLE_CAT" class="form-control" name="LIBELLE_CAT" type="text" value="{$product[0].LIBELLE_CAT}" required>
                         </div>
                     </div>
-
-
+                    <input type="hidden" name="ordre_de_visuel" value="{$product[0].Ordre_de_visuel}">
 
                     <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="DESCRIPTIF_PRODUIT">DESCRIPTIF PRODUIT:</label>
@@ -26,29 +25,33 @@
                         </div>
                     </div>
 
-                    {if count($product) > 1}
-
-                    {foreach from=$product item=item}
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="Descriptif_complementaire">Descriptif Complementaire {strtoupper($item.Ordre_de_visuel)}:</label>
-                            <div class="col-md-9">
-                                <textarea id="Descriptif_complementaire" class="form-control" name="Descriptif_complementaire" rows="3" spellcheck="false" data-ms-editor="true">{$item.Descriptif_complementaire}</textarea>
+                            <div class="mt-2 form-group row">
+                                <label class="col-md-3 form-control-label" for="Descriptif_complementaire">Descriptif Complementaire:</label>
+                                <div class="col-md-9">
+                                    <textarea id="Descriptif_complementaire" class="form-control" name="Descriptif_complementaire" rows="3" spellcheck="false" data-ms-editor="true">{$product[0].Descriptif_complementaire}</textarea>
+                                </div>
                             </div>
-                        </div>
-                    {/foreach}
-                    {else}
-                        <div class="form-group row">
-                            <label class="col-md-3 form-control-label" for="Descriptif_complementaire">Descriptif Complementaire:</label>
-                            <div class="col-md-9">
-                                <textarea id="Descriptif_complementaire" class="form-control" name="Descriptif_complementaire" rows="3" spellcheck="false" data-ms-editor="true">{$product[0].Descriptif_complementaire}</textarea>
-                            </div>
-                        </div>
-                    {/if}
 
                     <div class="form-group row">
-                        <label class="col-md-3 form-control-label" for="LIBELLE_CAT">Pied de page:</label>
+                        <label class="col-md-3 form-control-label" for="Pied_de_page">Pied de page:</label>
                         <div class="col-md-6">
-                            <input id="LIBELLE_CAT" class="form-control" name="LIBELLE_CAT" type="text" value="{$product[0].Pied_de_page}" required>
+                            <input id="Pied_de_page" class="form-control" name="Pied_de_page" type="text" value="{$product[0].Pied_de_page}">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="VISUEL_1">VISUEL 1</label>
+                        <div class="col-md-6">
+                            <input id="VISUEL_1" type="file" name="VISUEL_1" class="filestyle">
+                            <span class="col-md-3 form-control-comment">optional</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 form-control-label" for="VISUEL_2">VISUEL 2</label>
+                        <div class="col-md-6">
+                            <input id="VISUEL_2" type="file" value="" name="VISUEL_2" class="filestyle">
+                            <span class="col-md-3 form-control-comment">optional</span>
                         </div>
                     </div>
                 </section>

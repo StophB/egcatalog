@@ -57,11 +57,11 @@
                                                 <span class="price pl-3" aria-label="Price"><small>{$item.Soit_a_lunite}€</small></span>
                                             </div>
                                             {/if}
+                                                <div>
+                                                    <a class="btn btn-primary" href="{$updateLink}?page={$item.Page}&prd={$item.Ordre_de_page}&decli={$item.Ordre_de_visuel}">UPDATE</a>
+                                                </div>
                                             {/foreach}
 
-                                        </div>
-                                        <div>
-                                        <a class="btn btn-primary" href="{$updateLink}?page={$item.Page}&prd={$item.Ordre_de_page}">UPDATE</a>
                                         </div>
                                     </div>
                                 </article>
@@ -72,7 +72,7 @@
                                     <div class="thumbnail-container reviews-loaded">
                                         <div class="thumbnail-top">
                                             <a href="#" class="thumbnail product-thumbnail">
-                                                <img src="https://fournisseur.centrale-medicalliance.fr/modules/marketplace/views/img/visuels/{$product[0].VISUEL_1}.128.png" alt="{$product.LIBELLE_CAT}" data-full-size-image-url="" width="250" height="250" />
+                                                <img src="https://fournisseur.centrale-medicalliance.fr/modules/marketplace/views/img/visuels/{$product[0].VISUEL_1}.128.png" alt="{$product[0].LIBELLE_CAT}" data-full-size-image-url="" width="250" height="250" />
                                             </a>
                                         </div>
                                         <div class="product-description">
