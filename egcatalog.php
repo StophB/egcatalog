@@ -3,6 +3,7 @@
 if (!defined('_PS_VERSION_')) {
     exit;
 }
+include_once(dirname(__FILE__) . '/classes/EgCatalogClass.php');
 
 class EgCatalog extends Module
 {
@@ -13,31 +14,25 @@ class EgCatalog extends Module
         $this->version = '1.0.0';
         $this->author = 'Mustapha bousfina';
         $this->need_instance = 0;
-        $this->ps_versions_compliancy = [
-            'min' => '1.7',
-            'max' => _PS_VERSION_
-        ];
+
         $this->bootstrap = true;
 
         parent::__construct();
 
         $this->displayName = $this->l('Module eg catalog');
         $this->description = $this->l('Module egio catalog');
-
         $this->confirmUninstall = $this->l('Êtes-vous sûr de vouloir désinstaller ce module?');
+        $this->ps_versions_compliancy = [
+            'min' => '1.7',
+            'max' => _PS_VERSION_
+        ];
     }
 
     public function install()
     {
-        if (Shop::isFeatureActive()) {
-            Shop::setContext(Shop::CONTEXT_ALL);
-        }
+        include(dirname(__FILE__) . '/sql/install.php');
 
-        if (
-            !parent::install() ||
-            !$this->registerHook('displayTop') ||
-            !$this->registerHook('header')
-        ) {
+        if (!parent::install() || !$this->registerHook('displayTop') || !$this->registerHook('header')) {
             return false;
         }
 
@@ -46,9 +41,8 @@ class EgCatalog extends Module
 
     public function uninstall()
     {
-        if (
-            !parent::uninstall()
-        ) {
+        include(dirname(__FILE__) . '/sql/uninstall.php');
+        if (!parent::uninstall()) {
             return false;
         }
 
@@ -66,11 +60,7 @@ class EgCatalog extends Module
 
     public function hookDisplayHeader()
     {
-        $this->context->controller->registerStylesheet(
-            'egcatalog',
-            $this->_path . 'views/css/front.css',
-            ['server' => 'remote', 'position' => 'head', 'priority' => 150]
-        );
+        $this->context->controller->addJS($this->_path . '/views/js/front.js');
+        $this->context->controller->addCSS($this->_path . '/views/css/front.css');
     }
-
 }

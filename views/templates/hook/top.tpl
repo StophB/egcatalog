@@ -1,6 +1,6 @@
 <!-- Block egcatalog -->
 
-<a href="{$link}?page=4">voir catalog</a>
+<a href="{$link|escape:'htmlall':'UTF-8'}?page=4">{l s='voir catalog' mod='egcatalog'}</a>
 
 <!-- /Block egcatalog -->
 
