@@ -60,7 +60,7 @@
                 </section>
 
                 <footer class="form-footer text-sm-right">
-                    <input class="btn btn-primary" type="submit" name="update" value="{l s='update' mod='egcatalog'}">
+                    <input class="btn btn-primary" type="submit" name="update" value="{l s='mise à jour' mod='egcatalog'}">
                 </footer>
             </form>
         </section>

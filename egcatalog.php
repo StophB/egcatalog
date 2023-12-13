@@ -32,7 +32,7 @@ class EgCatalog extends Module
     {
         include(dirname(__FILE__) . '/sql/install.php');
 
-        if (!parent::install() || !$this->registerHook('displayTop') || !$this->registerHook('header')) {
+        if (!parent::install() || !$this->registerHook('moduleRoutes') || !$this->registerHook('displayTop') || !$this->registerHook('header')) {
             return false;
         }
 
@@ -47,6 +47,40 @@ class EgCatalog extends Module
         }
 
         return true;
+    }
+
+    public function hookModuleRoutes()
+    {
+        return [
+            'egcatalog' => [
+                'controller' => 'display',
+                'rule' => 'egcatalog/display',
+                'keywords' => [
+                    'link_rewrite' => [
+                        'regexp' => '[_a-zA-Z0-9-\pL]*',
+                        'param' => 'link_rewrite'
+                    ],
+                ],
+                'params' => [
+                    'fc' => 'module',
+                    'module' => 'egcatalog',
+                ]
+            ],
+            'egcatalogupdate' => [
+                'controller' => 'update',
+                'rule' => 'update',
+                'keywords' => [
+                    'link_rewrite' => [
+                        'regexp' => '[_a-zA-Z0-9-\pL]*',
+                        'param' => 'link_rewrite'
+                    ],
+                ],
+                'params' => [
+                    'fc' => 'module',
+                    'module' => 'egcatalog',
+                ]
+            ],
+        ];
     }
 
     public function hookDisplayTop($params)

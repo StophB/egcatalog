@@ -13,14 +13,14 @@
                             <a href="{$link}?page={$pageInfo.Page|escape:'htmlall':'UTF-8'}">{l s='Page ' mod='egcatalog'}{$pageInfo.Page|escape:'htmlall':'UTF-8'}</a>
                             <br>
                         {/foreach}
-                        <button class="btn btn-primary btn-sm mt-1" id="showMoreBtn">{l s='Show More' mod='egcatalog'}</button>
+                        <button class="btn btn-primary btn-sm mt-1" id="showMoreBtn">{l s='Voir Plus' mod='egcatalog'}</button>
                     </div>
                     <div class="block_content" id="allPagesContainer" style="display: none;">
                         {foreach from=$pages item=pageInfo}
                             <a href="{$link}?page={$pageInfo.Page|escape:'htmlall':'UTF-8'}">{l s='Page ' mod='egcatalog'}{$pageInfo.Page|escape:'htmlall':'UTF-8'}</a>
                             <br>
                         {/foreach}
-                        <button class="btn btn-primary btn-sm mt-1" id="showLessBtn">{l s='Show Less' mod='egcatalog'}</button>
+                        <button class="btn btn-primary btn-sm mt-1" id="showLessBtn">{l s='Voir Moins' mod='egcatalog'}</button>
                     </div>
                 </div>
             </aside>
@@ -66,7 +66,7 @@
                                             </div>
                                             {/if}
                                                 <div>
-                                                    <a class="btn btn-primary" href="{$updateLink|escape:'htmlall':'UTF-8'}?page={$item.Page}&prd={$item.Ordre_de_page|escape:'htmlall':'UTF-8'}&decli={$item.Ordre_de_visuel|escape:'htmlall':'UTF-8'}">{l s='UPDATE' mod='egcatalog'}</a>
+                                                    <a class="btn btn-primary" href="{$updateLink|escape:'htmlall':'UTF-8'}?page={$item.Page}&prd={$item.Ordre_de_page|escape:'htmlall':'UTF-8'}&decli={$item.Ordre_de_visuel|escape:'htmlall':'UTF-8'}">{l s='mise à jour' mod='egcatalog'}</a>
                                                 </div>
                                             {/foreach}
 
@@ -100,7 +100,7 @@
                                             {/if}
                                         </div>
                                         <div>
-                                        <a class="btn btn-primary" href="{$updateLink|escape:'htmlall':'UTF-8'}?page={$product[0].Page|escape:'htmlall':'UTF-8'}&prd={$product[0].Ordre_de_page|escape:'htmlall':'UTF-8'}">{l s='UPDATE' mod='egcatalog'}</a>
+                                        <a class="btn btn-primary" href="{$updateLink|escape:'htmlall':'UTF-8'}?page={$product[0].Page|escape:'htmlall':'UTF-8'}&prd={$product[0].Ordre_de_page|escape:'htmlall':'UTF-8'}">{l s='mise à jour' mod='egcatalog'}</a>
                                         </div>
                                     </div>
                                 </article>
